@@ -27,8 +27,10 @@ fn get_repos(auth_key string, repo_type string, sub_url string) []Repository {
 
 // Get a single repository
 pub fn get_repo(auth_key string, full_name string) Repository {
-	repo := get_repos(auth_key, "", "repos/" + full_name)
-	return repo[0]
+	response :=  requests.get(auth_key, base_url + "repos/" + full_name)
+	repo := json.decode(Repository, response) or { panic("Invalid JSON sent by server.") }
+
+	return repo
 }
 
 // Gets the users personal repos
