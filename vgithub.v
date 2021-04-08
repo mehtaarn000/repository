@@ -17,3 +17,8 @@ pub fn (u User) get_my_repos(repo_type string) []repository.Repository {
 	repos := repository.get_my_repos(u.auth_key, repo_type)
 	return repos
 }
+
+pub fn (u User) delete_repo(full_name string) bool {
+	response := repository.delete_repo(u.auth_key, full_name)
+	return response
+}

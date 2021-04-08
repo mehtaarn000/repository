@@ -27,8 +27,8 @@ pub fn create_repo(auth_key string, r Repository) Repository {
 	if r.homepage != "" {
 		data += ' "homepage": "$r.homepage"}'
 	} else {
-		if data[-1] == "," {
-			data -= data[-1]
+		if data.ends_with(",") == true {
+			data = data.substr(0, data.len - 2)
 		}
 
 		data += '}'
