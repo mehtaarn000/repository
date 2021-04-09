@@ -23,7 +23,7 @@ pub fn get(auth_key string, url string) string {
 	// Errors are sent through the "message" key
 	// If error, then panic
 	if raw_json.as_map()["message"].str() != "" {
-		eprint(raw_json.as_map()["message"])
+		panic(raw_json.as_map()["message"])
 	}
 
 	return response.text

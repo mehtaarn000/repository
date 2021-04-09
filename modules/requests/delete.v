@@ -17,13 +17,6 @@ pub fn delete(auth_key string, url string) int {
 
 	// Send the request
 	response := requester.do() or { panic("Request to API failed.") }
-	//raw_json := json2.raw_decode(response.text) or { panic('Invalid JSON sent by server.') }
-
-	// Errors are sent through the "message" key
-	// If error, then panic
-	//if raw_json.as_map()["message"].str() != "" {
-		//eprint(raw_json.as_map()["message"])
-	//}
 
 	return response.status_code
 }
