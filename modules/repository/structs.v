@@ -136,3 +136,17 @@ pub struct Contributer {
 	site_admin bool
 	contributions i64
 }
+
+pub struct Tag {
+	pub:
+	name string
+	commit TagCommit
+	zipball_url string
+	tarball_url string
+	node_id string
+}
+
+pub struct TagCommit {
+	sha string
+	url string
+}
