@@ -2,8 +2,9 @@ module vgithub
 
 import repository
 
+// User object
 pub struct User {
-	auth_key string
+	auth_key string [required]
 }
 
 // Wraps the repository.create_repo function
@@ -18,6 +19,13 @@ pub fn (u User) get_my_repos(repo_type string) []repository.Repository {
 	return repos
 }
 
+// Wraps the repository.get_repo function
+pub fn (u User) get_repo(full_name string) repository.Repository {
+	repo := repository.get_repo(u.auth_key, full_name)
+	return repo
+}
+
+// Wraps the repository.delete_repo function
 pub fn (u User) delete_repo(full_name string) bool {
 	response := repository.delete_repo(u.auth_key, full_name)
 	return response
