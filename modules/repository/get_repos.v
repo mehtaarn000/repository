@@ -39,6 +39,11 @@ pub fn get_my_repos(auth_key string, repo_type string) []Repository {
 	return repo_objects
 }
 
+pub fn get_users_repos(auth_key string, name string) []Repository {
+	repo_objects := get_repos(auth_key, "", "users/" + name + "/repos")
+	return repo_objects
+}
+
 // Gets random repos
 // BROKEN: Strange `V panic: tos2: nil string` error
 // Unexporting function until fixed

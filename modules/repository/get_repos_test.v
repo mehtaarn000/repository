@@ -17,3 +17,9 @@ pub fn test_get_my_repos() {
 	repos := get_my_repos(auth_key, "all")
 	assert repos.len != 0
 }
+
+pub fn test_get_users_repos() {
+	repos := get_users_repos(auth_key, "mehtaarn000")
+	assert repos[0].name == "Flask-Sheets-Database-Example"
+	assert repos.len != 0
+}
