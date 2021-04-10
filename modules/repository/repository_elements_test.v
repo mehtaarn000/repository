@@ -19,7 +19,7 @@ pub fn test_list_repo_tags() {
 }
 
 pub fn test_list_repo_topics() {
-	objects := list_repo_topics(auth_key, 'mehtaarn000/PriceHero')
+	objects := list_repo_topics(repository.auth_key, 'mehtaarn000/PriceHero')
 	assert objects.names[0] == 'product-prices'
 	assert objects.names[1] == 'hacktoberfest'
 	assert objects.names[2] == 'python3'

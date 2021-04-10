@@ -150,7 +150,6 @@ pub struct TagCommit {
 	url string
 }
 
-
 pub struct Topic {
 	names []string
 }

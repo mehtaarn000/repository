@@ -15,7 +15,7 @@ pub fn get(auth_key string, url string) string {
 
 	// Add the accept header
 	if url.ends_with('/topics') {
-		requester.add_header('Accept', "application/vnd.github.mercy-preview+json")
+		requester.add_header('Accept', 'application/vnd.github.mercy-preview+json')
 	} else {
 		requester.add_header('Accept', 'application/vnd.github.v3+json')
 	}
