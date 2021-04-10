@@ -17,3 +17,10 @@ pub fn test_list_repo_tags() {
 	assert objects[objects.len - 1].name == '0.2.9'
 	assert objects[objects.len - 1].commit.sha == 'bf9702521c04d268aa285a9f01824113ad99388e'
 }
+
+pub fn test_list_repo_topics() {
+	objects := list_repo_topics(auth_key, 'mehtaarn000/PriceHero')
+	assert objects.names[0] == 'product-prices'
+	assert objects.names[1] == 'hacktoberfest'
+	assert objects.names[2] == 'python3'
+}

@@ -16,3 +16,10 @@ pub fn list_repo_tags(auth_key string, full_name string) []Tag {
 	tags := json.decode([]Tag, response) or { panic(err) }
 	return tags
 }
+
+pub fn list_repo_topics(auth_key string, full_name string) Topic {
+	response := requests.get(auth_key, base_url + 'repos/' + full_name + '/topics')
+
+	topics := json.decode(Topic, response) or { panic(err) }
+	return topics
+}

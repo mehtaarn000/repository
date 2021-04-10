@@ -14,7 +14,11 @@ pub fn get(auth_key string, url string) string {
 	requester.add_header('Authorization', 'token ' + auth_key)
 
 	// Add the accept header
-	requester.add_header('Accept', 'application/vnd.github.v3+json')
+	if url.ends_with('/topics') {
+		requester.add_header('Accept', "application/vnd.github.mercy-preview+json")
+	} else {
+		requester.add_header('Accept', 'application/vnd.github.v3+json')
+	}
 
 	// Send the request
 	response := requester.do() or { panic('Request to API failed.') }

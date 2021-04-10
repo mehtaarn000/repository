@@ -149,3 +149,8 @@ pub struct TagCommit {
 	sha string
 	url string
 }
+
+
+pub struct Topic {
+	names []string
+}
