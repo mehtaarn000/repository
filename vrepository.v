@@ -1,4 +1,4 @@
-module vgithub
+module vrepository
 
 import repository
 
