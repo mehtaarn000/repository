@@ -18,13 +18,13 @@ pub fn post(auth_key string, url string, data string) string {
 	requester.add_header('Accept', 'application/vnd.github.v3+json')
 
 	// Send the request
-	response := requester.do() or { panic('Request to API failed.') }
-	raw_json := json2.raw_decode(response.text) or { panic('Invalid JSON sent by server.') }
+	response := requester.do() or { panic(err) }
+	raw_json := json2.raw_decode(response.text) or { panic(err) }
 
 	// Errors are sent through the "message" key
 	// If error, then panic
 	if raw_json.as_map()['message'].str() != '' {
-		panic(raw_json.as_map()['message'])
+		panic(raw_json.as_map()['message'].str())
 	}
 
 	return response.text
