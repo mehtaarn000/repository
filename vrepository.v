@@ -30,3 +30,27 @@ pub fn (u User) delete_repo(full_name string) bool {
 	response := repository.delete_repo(u.auth_key, full_name)
 	return response
 }
+
+// Wraps the repository.list_repo_contributers function
+pub fn (u User) list_repo_contributors(full_name string) []repository.Contributer {
+	contributors := repository.list_repo_contributors(u.auth_key, full_name)
+	return contributors
+}
+
+// Wraps the repository.list_repo_tags function
+pub fn (u User) list_repo_tags(full_name string) []repository.Tag {
+	tags := repository.list_repo_tags(u.auth_key, full_name)
+	return tags
+}
+
+// Wraps the repository.list_repo_topics function
+pub fn (u User) list_repo_topics(full_name string) []repository.Topic {
+	topics := repository.list_repo_topics(u.auth_key, full_name)
+	return topics
+}
+
+// Wraps the repository.transfer_repo function
+pub fn (u User) transfer_repo(full_name string, new_owner string) repository.Repository {
+	repo := repository.transfer_repo(u.auth_key, full_name, new_owner)
+	return repo
+}
