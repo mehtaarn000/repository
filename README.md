@@ -1,2 +1,2 @@
-# vgithub
-V wrapper for the GitHub API
+# vrepository
+V wrapper for the GitHub Repository API
