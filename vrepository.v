@@ -1,6 +1,7 @@
 module vrepository
 
 import repository
+import branch
 
 // User object
 pub struct User {
@@ -53,4 +54,10 @@ pub fn (u User) list_repo_topics(full_name string) []repository.Topic {
 pub fn (u User) transfer_repo(full_name string, new_owner string) repository.Repository {
 	repo := repository.transfer_repo(u.auth_key, full_name, new_owner)
 	return repo
+}
+
+// Wraps the branch.get_branch function
+pub fn (u User) get_branch(full_name string, branch_name string) branch.Branch {
+	branch := branch.get_branch(u.auth_key, full_name, branch_name)
+	return branch
 }
