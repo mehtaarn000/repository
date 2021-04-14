@@ -12,6 +12,15 @@ pub:
 	protection_url string
 }
 
+pub struct PartBranch {
+	pub:
+	name string
+	commit Tree
+	protected bool
+	protection Protection
+	protection_url string
+}
+
 pub struct Commit {
 pub:
 	sha          string

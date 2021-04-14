@@ -12,3 +12,12 @@ pub fn get_branch(auth_key string, full_name string, branch_name string) Branch 
 
 	return branch
 }
+
+pub fn get_branches(auth_key string, full_name string) []PartBranch {
+	url := repository.base_url + 'repos/' + full_name + '/branches'
+
+	response := requests.get(auth_key, url)
+	branches := json.decode([]PartBranch, response) or { panic(err) }
+
+	return branches
+}
