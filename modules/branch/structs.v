@@ -13,11 +13,11 @@ pub:
 }
 
 pub struct PartBranch {
-	pub:
-	name string
-	commit Tree
-	protected bool
-	protection Protection
+pub:
+	name           string
+	commit         Tree
+	protected      bool
+	protection     Protection
 	protection_url string
 }
 
