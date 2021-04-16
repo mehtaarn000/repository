@@ -21,7 +21,7 @@ fn get_repos(auth_key string, repo_type string, sub_url string) []Repository {
 	response := requests.get(auth_key, url)
 
 	// Convert the json data into repositories and return
-	repo_objects := json.decode([]Repository, response) or { panic('Invalid JSON sent by server.') }
+	repo_objects := json.decode([]Repository, response) or { panic(err) }
 	return repo_objects
 }
 
