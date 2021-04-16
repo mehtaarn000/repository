@@ -2,6 +2,7 @@ module vrepository
 
 import repository
 import branch
+import collaborators
 
 // User object
 pub struct User {
@@ -58,12 +59,17 @@ pub fn (u User) transfer_repo(full_name string, new_owner string) repository.Rep
 
 // Wraps the branch.get_branch function
 pub fn (u User) get_branch(full_name string, branch_name string) branch.Branch {
-	branch := branch.get_branch(u.auth_key, full_name, branch_name)
-	return branch
+	mybranch := branch.get_branch(u.auth_key, full_name, branch_name)
+	return mybranch
 }
 
 // Wraps the branch.rename_branch function
 pub fn (u User) rename_branch(full_name string, branch_name string, new_branch_name string) branch.Branch {
-	branch := branch.rename(u.auth_key, full_name, branch_name, new_branch_name)
-	return branch
+	newbranch := branch.rename(u.auth_key, full_name, branch_name, new_branch_name)
+	return newbranch
+}
+
+pub fn (u User) get_collaborators(full_name string) []collaborators.Collaborator {
+	allcollaborators := collaborators.get_collaborators(u.auth_key, full_name)
+	return allcollaborators
 }
