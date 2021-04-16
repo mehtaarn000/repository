@@ -61,3 +61,9 @@ pub fn (u User) get_branch(full_name string, branch_name string) branch.Branch {
 	branch := branch.get_branch(u.auth_key, full_name, branch_name)
 	return branch
 }
+
+// Wraps the branch.rename_branch function
+pub fn (u User) rename_branch(full_name string, branch_name string, new_branch_name string) branch.Branch {
+	branch := branch.rename(u.auth_key, full_name, branch_name, new_branch_name)
+	return branch
+}
