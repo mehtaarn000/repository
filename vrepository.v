@@ -63,12 +63,19 @@ pub fn (u User) get_branch(full_name string, branch_name string) branch.Branch {
 	return mybranch
 }
 
+// Wraps the branch.get_branches function
+pub fn (u User) get_branches(full_name string) []branch.Branch {
+	branches := branch.get_branches(u.auth_key, full_name)
+	return branches
+}
+
 // Wraps the branch.rename_branch function
 pub fn (u User) rename_branch(full_name string, branch_name string, new_branch_name string) branch.Branch {
 	newbranch := branch.rename(u.auth_key, full_name, branch_name, new_branch_name)
 	return newbranch
 }
 
+// Wraps the collaborators.get_collaborators function
 pub fn (u User) get_collaborators(full_name string) []collaborators.Collaborator {
 	allcollaborators := collaborators.get_collaborators(u.auth_key, full_name)
 	return allcollaborators
