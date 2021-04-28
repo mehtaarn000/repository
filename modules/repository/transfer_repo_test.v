@@ -8,7 +8,7 @@ const (
 )
 
 pub fn test_transfer_repo() {
-	repo := transfer_repo(repository.auth_key, repository.testrepo, 'mehtaarn000-readmebot')
+	repo := transfer_repo(repository.auth_key, repository.testrepo, 'mehtaarn000-readmebot') or { panic(err) }
 
 	// The new owner has to accept the repository
 	// So the full_name element remains the same

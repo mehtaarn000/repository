@@ -3,7 +3,7 @@ module repository
 import requests
 import json
 
-pub fn create_repo(auth_key string, r Repository) Repository {
+pub fn create_repo(auth_key string, r Repository) ?Repository {
 	/*
 	Used Repository fields:
 		name
@@ -39,6 +39,6 @@ pub fn create_repo(auth_key string, r Repository) Repository {
 	raw_json := requests.post(auth_key, base_url + 'user/repos', data)
 
 	// Parse and return the new repository
-	repo := json.decode(Repository, raw_json) or { panic(err) }
+	repo := json.decode(Repository, raw_json) or { return error(err) }
 	return repo
 }
