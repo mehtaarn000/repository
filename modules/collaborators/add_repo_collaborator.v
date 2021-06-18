@@ -4,7 +4,7 @@ import requests
 import json
 import repository
 
-pub fn add_repo_collaborator(auth_key string, full_name string, username string, permission string)  {
+fn add_repo_collaborator(auth_key string, full_name string, username string, permission string)  {
 	url := repository.base_url + 'repos/' + full_name + '/collaborators/' + username
 	println(url)
 	data := '{"permission": "$permission"}'
