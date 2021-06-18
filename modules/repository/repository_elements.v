@@ -6,20 +6,20 @@ import json
 pub fn list_repo_contributors(auth_key string, full_name string) ?[]Contributer {
 	response := requests.get(auth_key, base_url + 'repos/' + full_name + '/contributors')
 
-	contributors := json.decode([]Contributer, response) or { return error(err) }
+	contributors := json.decode([]Contributer, response) or { return err }
 	return contributors
 }
 
 pub fn list_repo_tags(auth_key string, full_name string) ?[]Tag {
 	response := requests.get(auth_key, base_url + 'repos/' + full_name + '/tags')
 
-	tags := json.decode([]Tag, response) or { return error(err) }
+	tags := json.decode([]Tag, response) or { return err }
 	return tags
 }
 
 pub fn list_repo_topics(auth_key string, full_name string) ?Topic {
 	response := requests.get(auth_key, base_url + 'repos/' + full_name + '/topics')
 
-	topics := json.decode(Topic, response) or { return error(err) }
+	topics := json.decode(Topic, response) or { return err }
 	return topics
 }
